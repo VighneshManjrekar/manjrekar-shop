@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') -%>
+
+    <body>
+        <%- include('../includes/nav.ejs') -%>
+            <main class="container">
+                <form action="/admin/<% if (editMode) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data" class="input-group">
+
+                    <label class="input-label" for="product-title">Title</label>
+                    <input type="text" class="input-field <%= errs.titleErr != null ? 'invalid' : '' %>" id="product-title" name="title" value="<% if (editMode || isError) { %><%=product.title.trim()%><% } %>">
+                    <%if(errs.titleErr){%>
+                        <div class="auth-err"><%=errs.titleErr%></div>
+                    <%}%>
+
+                    <!-- <label class="input-label" for="product-image">ImageURL</label>
+                    <input type="text" class="input-field <%= errs.imgErr != null ? 'invalid' : '' %>" id="product-image" name="img" value="<% if (editMode) { %><%=product.img %><% } %>">
+                    <%if(errs.imgErr){%>
+                        <div class="auth-err"><%=errs.imgErr%></div>
+                    <%}%> -->
+
+                    <label class="input-label" for="product-image">ImageURL</label>
+                    <input type="file" class="input-field <%= errs.imgErr != null ? 'invalid' : '' %>" id="product-image" name="img"  >
+                    <%if(errs.imgErr){%>
+                        <div class="auth-err"><%=errs.imgErr%></div>
+                    <%}%>
+
+                    <label class="input-label" for="product-description">Description</label>
+                    <textarea id="product-description" class="input-field <%= errs.descriErr != null ? 'invalid' : '' %>" name="description" rows="5"><% if (editMode) { %><%=product.description.trim()%> <% } %></textarea>
+                    <%if(errs.descriErr){%>
+                        <div class="auth-err"><%=errs.descriErr%></div>
+                    <%}%>
+
+                    <label class="input-label" for="product-price">Price</label>
+                    <input type="number" class="input-field <%= errs.priceErr != null ? 'invalid' : '' %>" id="product-price" name="price" step="0.01" value=<% if (editMode) { %><%=+product.price%> <% } %>
+                    >
+                    <%if(errs.priceErr){%>
+                        <div class="auth-err"><%=errs.priceErr%></div>
+                    <%}%>
+
+                    <% if (editMode) { %>
+                        <input type="hidden" name="productId" value=<%= product._id %>>
+                    <% } %>
+                    
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit" class="submit-btn">
+                        <% if (editMode) { %>Update Prdouct <% } else { %>Add Product <% } %>
+                    </button>
+                </form>
+            </main>
+    </body>
+
+    </html>

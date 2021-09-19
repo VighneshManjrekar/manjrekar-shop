@@ -1,0 +1,30 @@
+<%- include('../includes/head.ejs') -%>
+
+    <body>
+        <%- include('../includes/nav.ejs') -%>
+        <main class="container">
+            <form action="/sign-up" method="POST" class="input-group">
+                <label class="input-label" for="name">Full Name</label>
+                <input type="text" class="input-field <%= message.userNameErr != null ? 'invalid' : '' %>  " id="name" name="userName" placeholder="Enter your full name..." value="<%=oldInput.userName%>">
+                <%if(message.userNameErr){%>
+                    <div class="auth-err"><%= message.userNameErr %></div>
+                <%}%>
+                <label class="input-label" for="email">Email</label>
+                <input type="email" class="input-field <%= message.emailErr != null ? 'invalid' : '' %>  " id="email" name="email" placeholder="Enter your mail..." value="<%=oldInput.email%>">
+                <%if(message.emailErr){%>
+                    <div class="auth-err"><%= message.emailErr %></div>
+                <%}%>
+                <label class="input-label" for="password">Password</label>
+                <input type="password" class="input-field <%= message.passwordErr != null ? 'invalid' : '' %>  " id="password" name="password" placeholder="Enter your password..." value="<%=oldInput.password%>">
+                <%if(message.passwordErr){%>
+                    <div class="auth-err"><%= message.passwordErr %></div>
+                <%}%>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="submit-btn">
+                    Register
+                </button>
+                <p class="input-p">Already registered? <a href="/sign-in">Login here!</a></p>
+            </form>
+        </main>
+</body>
+</html>

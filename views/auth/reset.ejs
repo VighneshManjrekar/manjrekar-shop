@@ -1,0 +1,20 @@
+<%- include('../includes/head.ejs') -%>
+
+    <body>
+        <%- include('../includes/nav.ejs') -%>
+        <main class="container">
+            <form action="/reset" method="POST" class="input-group">
+                <%if(message.length > 0){%>
+                    <div><%= message[0] %></div>
+                <%}%>
+                <label class="input-label" for="email">Email</label>
+                <input type="email" class="input-field" id="email" name="email" placeholder="Enter your mail...">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit" class="submit-btn">
+                    Reset Password
+                </button>
+            </form>
+        </main>
+    </body>
+
+    </html>

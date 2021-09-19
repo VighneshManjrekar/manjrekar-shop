@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font-family: 'PT Sans', sans-serif;
+font-family: 'Roboto Slab', serif; */
+body {
+  font-family: "PT Sans", sans-serif;
+}
+
+form {
+  display: inline;
+}
+
+/* Nav bar */
+.navbar {
+  background: #07689f;
+  padding: 0.8rem 0;
+  margin-bottom: 1rem;
+}
+.nav-link {
+  color: #ffffff;
+  margin-right: 1.2rem;
+}
+.nav-link:hover {
+  color: #ffc947;
+}
+
+.active {
+  color: #ffc947;
+}
+.custom-toggler.navbar-toggler {
+  width: 30px;
+  height: 30px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* Cards */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 2rem auto;
+}
+.card {
+  font-family: "Roboto Slab", serif;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: #f6f6f6;
+}
+.card-btn,
+.pd-btn {
+  border: solid 2px;
+  font-size: 1.1rem;
+}
+
+.product-form {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.paging {
+  text-align: center;
+  margin: 1rem;
+}
+.paging a {
+  text-decoration: none;
+  border: solid #07689f 1px;
+  color: #07689f;
+  padding: 0.5rem;
+}
+.paging a:hover,
+.paging a:active,
+.paging a.active {
+  background: #07689f;
+  color: #f7be16;
+}
+
+/* Add Product */
+.input-label {
+  font-family: "Roboto Slab", serif;
+  color: #302387;
+  font-size: 1.2rem;
+  text-decoration: solid;
+  margin-bottom: 0.5rem;
+}
+textarea {
+  resize: none;
+}
+
+.submit-btn {
+  font-family: "Roboto Slab", serif;
+  width: 150px;
+  background: #ffc947;
+  color: #07689f;
+  border: solid 1px #07689f;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+}
+.submit-btn:hover {
+  background: #07689f;
+  border: solid 1px #07689f;
+  color: #ffc947;
+}
+
+.input-field {
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.05rem;
+  padding: 0.5rem 1rem;
+  border: solid 2px black;
+  outline: none;
+  margin-bottom: 1rem;
+}
+.input-field:focus {
+  border: solid 2px #f7be16;
+}
+
+.input-group {
+  width: 30rem;
+  justify-content: space-evenly;
+  display: flex;
+  flex-flow: column;
+}
+
+.input-p {
+  margin-top: 1rem;
+}
+
+/* Product details */
+
+.product-detalis-main {
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-around;
+}
+.pd-main-img {
+  margin-bottom: 2rem;
+  width: 20rem;
+}
+
+.pd-main-col {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pd-btn {
+  margin: 0 0.5rem;
+  font-family: "Roboto Slab", serif;
+}
+
+/* cart */
+
+.del-btn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.cart-item-list {
+  width: 20rem;
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+}
+
+.cart-container {
+  box-shadow: rgba(0, 0, 0, 0.192) 1.95px 1.95px 2.6px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem 0;
+  margin: 0.5rem 0;
+  display: flex;
+  background: #f6f6f6;
+  justify-content: space-evenly;
+}
+.order-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+/* order */
+.order-card {
+  width: auto;
+  margin: 1rem 2rem;
+}
+.order-quantity {
+  margin: 0;
+}
+
+/* auth */
+
+.auth-err {
+  color: #ff0000;
+  margin-top: -15px;
+  margin-bottom: 5px;
+}
+
+.input-field.invalid {
+  border: solid 2px #ff2442;
+}
+
+@media (max-width: 768px) {
+  .product-detalis-main {
+    flex-flow: column;
+    text-align: center;
+  }
+  .pd-main-img {
+    margin: 0 auto 2rem;
+    width: 19rem;
+  }
+  .card-header {
+    font-size: 1.2rem;
+  }
+}

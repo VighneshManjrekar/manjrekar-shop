@@ -1,0 +1,37 @@
+{
+  "name": "manjrekar-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Vighnesh Manjrekar",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.6",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^3.1.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.6",
+    "multer": "^1.4.3",
+    "nodemailer": "^6.6.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pdfkit": "^0.12.3",
+    "stripe": "^8.176.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
