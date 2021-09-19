@@ -2,6 +2,8 @@ const Product = require("../models/product");
 const fileHelper = require("../utils/file");
 const { validationResult } = require("express-validator");
 
+const User = require('../models/user');
+
 exports.getAddProduct = (req, res, next) => {
   res.render("admin/edit-product", {
     pageTitle: "Add Product",
@@ -202,10 +204,13 @@ exports.deleteProduct = async (req, res, next) => {
       return next(new Error("Product Not Found!"));
     }
     fileHelper.deleteImg(product.img);
+
+    await req.user.deleteProduct(prodId)
     await Product.deleteOne({
       _id: prodId,
       userId: req.user._id,
     });
+1    
     res.status(200).json({ message: "Success!" });
   } catch (err) {
     res.status(500).json({ message: "Failed!" });

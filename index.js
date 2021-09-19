@@ -108,8 +108,8 @@ const errorController = require("./controllers/error");
 // user model
 const User = require("./models/user");
 // optimiztion
-app.use(helmet());
-app.use(compression());
+// app.use(helmet());
+// app.use(compression());
 
 // handling incoming req
 app.use("/admin", adminRoutes);
