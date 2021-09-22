@@ -1,18 +1,9 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
-const nodemailer = require("nodemailer");
-const sgTransport =  require('@sendgrid/mail');
+const sgTransport = require("@sendgrid/mail");
 const crypto = require("crypto");
 const { validationResult } = require("express-validator");
-sgTransport.setApiKey(`${process.env.SENDGRID_PASS}`)
-
-// const SENDGRID_PASS = ;
-// const options = {
-//   auth: {
-//     api_key: SENDGRID_PASS,
-//   },
-// };
-// await sgTransport = nodemailer.createTransport(sgTransport(options));
+sgTransport.setApiKey(`${process.env.SENDGRID_PASS}`);
 
 exports.postSignUp = async (req, res, next) => {
   const email = req.body.email.toLowerCase();

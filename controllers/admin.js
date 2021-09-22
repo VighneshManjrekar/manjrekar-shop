@@ -1,8 +1,9 @@
+const fs = require("fs");
 const Product = require("../models/product");
 const fileHelper = require("../utils/file");
 const { validationResult } = require("express-validator");
 
-const User = require('../models/user');
+const User = require("../models/user");
 
 exports.getAddProduct = (req, res, next) => {
   res.render("admin/edit-product", {
@@ -181,7 +182,9 @@ exports.postEditProduct = async (req, res, next) => {
       });
     }
     if (img) {
-      fileHelper.deleteImg(product.img);
+      if (fs.existsSync(product.img)) {
+        fileHelper.deleteImg(product.img, next);
+      }
       product.img = img.path;
     }
     product.title = title;
@@ -203,14 +206,16 @@ exports.deleteProduct = async (req, res, next) => {
     if (!product) {
       return next(new Error("Product Not Found!"));
     }
-    fileHelper.deleteImg(product.img);
+    if (fs.existsSync(product.img)) {
+      fileHelper.deleteImg(product.img, next);
+    }
 
-    await req.user.deleteProduct(prodId)
+    await req.user.deleteProduct(prodId);
     await Product.deleteOne({
       _id: prodId,
       userId: req.user._id,
     });
-1    
+    1;
     res.status(200).json({ message: "Success!" });
   } catch (err) {
     res.status(500).json({ message: "Failed!" });

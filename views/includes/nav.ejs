@@ -12,20 +12,20 @@
           <a class="nav-link fs-4 <%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
           <a class="nav-link fs-4 <%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
           <% if(isLoggedIn){ %>
-            <a class="nav-link fs-4 <%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-            <a class="nav-link fs-4 <%= path === '/order' ? 'active' : '' %>" href="/order">Order</a>
-            <a class="nav-link fs-4 <%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add
-              Product</a>
-            <a class="nav-link fs-4 <%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin
-              Products</a>
+          <a class="nav-link fs-4 <%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+          <a class="nav-link fs-4 <%= path === '/order' ? 'active' : '' %>" href="/order">Order</a>
+          <a class="nav-link fs-4 <%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add
+            Product</a>
+          <a class="nav-link fs-4 <%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin
+            Products</a>
           <% } %>
           <% if(!isLoggedIn){ %>
-            <a class="nav-link fs-4 <%= path === '/sign-up' ? 'active' : '' %>" href="/sign-up">SignUp</a>
+          <a class="nav-link fs-4 <%= path === '/sign-up' ? 'active' : '' %>" href="/sign-up">SignUp</a>
           <% }else{ %>
-            <form action="/logout" method="POST">
-              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-              <button style="background: transparent;border: none;" class="nav-link fs-4" type="submit">Logout</button>
-            </form>
+          <form action="/logout" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button style="background: transparent;border: none;" class="nav-link fs-4" type="submit">Logout</button>
+          </form>
           <% } %>
         </div>
       </div>

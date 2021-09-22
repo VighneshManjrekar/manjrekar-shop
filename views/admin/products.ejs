@@ -1,40 +1,38 @@
 <%- include('../includes/head.ejs') -%>
 
-    <body>
-        <%- include('../includes/nav.ejs') -%>
-        <main>
-            <% if (products.length> 0) { %>
-                <div  class="container">
-                    <% for (let product of products) { %>
-                        <div class="card" style="width: 18rem;">
-                            <img src="/<%= product.img %>" class="card-img-top" alt="<%= product.title %>">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <%= product.title %>
-                                </h5>
-                                <span class="card-text"><%= product.description %></span>
-                                <p><h4 class="card-text">₹<%= product.price %></h4></p>
-                                <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn card-btn btn-outline-danger">Edit Product</a>
-                                <!-- <form action="/admin/delete-product" method="POST">
-                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                    <input type="hidden" name="productId" value="<%= product._id %>">
-                                    <button type="submit" class="btn card-btn btn-outline-primary ms-3">Delete</button>
-                                </form> -->
-                                <!-- <div> -->
-                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                    <input type="hidden" name="productId" value="<%= product._id %>">
-                                    <button type="button" onclick="deleteProduct(this)" class="btn card-btn btn-outline-primary ms-3">Delete</button>
-                                <!-- </div> -->
-                            </div>
-                        </div>
-                    <% } %>
+<body>
+    <%- include('../includes/nav.ejs') -%>
+    <main>
+        <% if (products.length> 0) { %>
+        <div class="container">
+            <% for (let product of products) { %>
+            <div class="card" style="width: 18rem;">
+                <img src="/<%= product.img %>" class="card-img-top" alt="<%= product.title %>">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= product.title %>
+                    </h5>
+                    <span class="card-text"><%= product.description %></span>
+                    <p>
+                        <h4 class="card-text">₹<%= product.price %></h4>
+                    </p>
+                    <a href="/admin/edit-product/<%= product._id %>?edit=true"
+                        class="btn card-btn btn-outline-danger">Edit Product</a>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <input type="hidden" name="productId" value="<%= product._id %>">
+                    <button type="button" onclick="deleteProduct(this)"
+                        class="btn card-btn btn-outline-primary ms-3">Delete</button>
                 </div>
-                <%- include('../includes/pagination.ejs',{ currentPage, previousPage, nextPage, hasPreviousPage, hasNextPage, lastPage }) -%>
-                
-            <% }else{ %>
-                <h1>No Product Added</h1>
+            </div>
             <% } %>
-        </main>
-    </body>
-    <script type="text/javascript" src="/js/delete.js"></script>
-    </html>
+        </div>
+        <%- include('../includes/pagination.ejs',{ currentPage, previousPage, nextPage, hasPreviousPage, hasNextPage, lastPage }) -%>
+
+        <% }else{ %>
+        <h1>No Product Added</h1>
+        <% } %>
+    </main>
+</body>
+<script type="text/javascript" src="/js/delete.js"></script>
+
+</html>

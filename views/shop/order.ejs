@@ -1,28 +1,28 @@
 <%- include('../includes/head.ejs') -%>
 
-    <body>
-        <%- include('../includes/nav.ejs') -%>
+<body>
+    <%- include('../includes/nav.ejs') -%>
 
-            <main>
-                <%if(orders.length> 0){%>
-                    <% orders.forEach(order=>{ %>
-                        <div class="card order-card">
-                            <h5 class="card-header">OrderId - #<%=order._id%>&nbsp;&nbsp;<a
-                                        href="/order/<%=order._id%>">Invoice</a></h5>
-                            <ul class="list-group list-group-flush">
-                                <% order.items.forEach(item=>{ %>
-                                    <li class="list-group-item">
-                                        <%=item.product.title%>
-                                            <p class="order-quantity">Quantity: <%=item.quantity%>
-                                            </p>
-                                    </li>
-                                    <%})%>
-                            </ul>
-                        </div>
+    <main>
+        <%if(orders.length> 0){%>
+        <% orders.forEach(order=>{ %>
+        <div class="card order-card">
+            <h5 class="card-header">OrderId - #<%=order._id%>&nbsp;&nbsp;<a href="/order/<%=order._id%>">Invoice</a>
+            </h5>
+            <ul class="list-group list-group-flush">
+                <% order.items.forEach(item=>{ %>
+                <li class="list-group-item">
+                    <%=item.product.title%>
+                    <p class="order-quantity">Quantity: <%=item.quantity%>
+                    </p>
+                </li>
+                <%})%>
+            </ul>
+        </div>
 
-                        <%})%>
-                            <%}else{%>
-                                <h3>No Orders</h3>
-                                <%}%>
+        <%})%>
+        <%}else{%>
+        <h3>No Orders</h3>
+        <%}%>
             </main>
     </body>

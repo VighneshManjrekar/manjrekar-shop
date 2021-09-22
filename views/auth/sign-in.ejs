@@ -1,28 +1,30 @@
 <%- include('../includes/head.ejs') -%>
 
-    <body>
-        <%- include('../includes/nav.ejs') -%>
-        <main class="container">
-            <form action="/sign-in" method="POST" class="input-group">
-                
-                <label class="input-label" for="email">Email</label>
-                <input type="email" class="input-field  <%= emailErr != '' ? 'invalid' : '' %>" id="email" name="email" placeholder="Enter your mail..." value="<%=oldInput.email%>">
-                <%if(emailErr){%>
-                    <div class="auth-err"><%= emailErr %></div>
-                <%}%>
-                <label class="input-label" for="password">Password</label>
-                <input type="password" class="input-field  <%= passwordErr != '' ? 'invalid' : '' %>" id="password" name="password" placeholder="Enter your password..." value="<%=oldInput.password%>">
-                <%if(passwordErr){%>
-                    <div class="auth-err"><%= passwordErr %></div>
-                <%}%>
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                <button type="submit" class="submit-btn">
-                    Login
-                </button>
-                <p class="input-p">New here? <a href="/sign-up">Register here!</a></p>
-                <p><a href="/reset">Reset Password</a></p>
-            </form>
-        </main>
-    </body>
+<body>
+    <%- include('../includes/nav.ejs') -%>
+    <main class="container">
+        <form action="/sign-in" method="POST" class="input-group">
 
-    </html>
+            <label class="input-label" for="email">Email</label>
+            <input type="email" class="input-field  <%= emailErr != '' ? 'invalid' : '' %>" id="email" name="email"
+                placeholder="Enter your mail..." value="<%=oldInput.email%>">
+            <%if(emailErr){%>
+            <div class="auth-err"><%= emailErr %></div>
+            <%}%>
+                <label class="input-label" for="password">Password</label>
+                <input type="password" class="input-field  <%= passwordErr != '' ? 'invalid' : '' %>" id="password"
+            name="password" placeholder="Enter your password..." value="<%=oldInput.password%>">
+            <%if(passwordErr){%>
+            <div class="auth-err"><%= passwordErr %></div>
+            <%}%>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" class="submit-btn">
+                Login
+            </button>
+            <p class="input-p">New here? <a href="/sign-up">Register here!</a></p>
+            <p><a href="/reset">Reset Password</a></p>
+        </form>
+    </main>
+</body>
+
+</html>

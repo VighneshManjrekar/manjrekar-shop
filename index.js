@@ -12,8 +12,8 @@ const MongoDbStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
-const helmet = require('helmet');
-const compression = require('compression');
+const helmet = require("helmet");
+const compression = require("compression");
 
 // Helper variables
 const app = express();
@@ -107,9 +107,10 @@ const authRoutes = require("./routes/auth");
 const errorController = require("./controllers/error");
 // user model
 const User = require("./models/user");
+
 // optimiztion
-// app.use(helmet());
-// app.use(compression());
+app.use(helmet());
+app.use(compression());
 
 // handling incoming req
 app.use("/admin", adminRoutes);

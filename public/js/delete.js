@@ -13,7 +13,6 @@ const deleteProduct = (btn) => {
     },
   })
     .then((result) => {
-      console.log(result);
       product.parentNode.removeChild(product);
     })
     .catch((err) => {

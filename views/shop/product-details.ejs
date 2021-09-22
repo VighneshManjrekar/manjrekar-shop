@@ -1,29 +1,29 @@
 <%- include('../includes/head.ejs') -%>
 
-    <body>
-        <%- include('../includes/nav.ejs') -%>
-            <main class="product-detalis-main">
-                <div class="pd-main-img">
-                    <img class="img-fluid img-thumbnail" src="/<%= product.img %>" alt="<%= product.title %>">
-                </div>
-                <div class="pd-main-col">
-                    <h1>
-                        <%= product.title %>
-                    </h1>
-                    <h3>
-                        <pre style="display: inline;">₹</pre>
-                        <%= product.price %>
-                    </h3>
-                    <p>
-                        <%= product.description %>
-                    </p>
-                    <div class="pd-main-btn">
-                        <% if(isLoggedIn){ %>
-                            <%- include('../includes/add-to-cart.ejs',{product}) -%>
-                        <% } %>
-                    </div>
-                </div>
-            </main>
-    </body>
+<body>
+    <%- include('../includes/nav.ejs') -%>
+    <main class="product-detalis-main">
+        <div class="pd-main-img">
+            <img class="img-fluid img-thumbnail" src="/<%= product.img %>" alt="<%= product.title %>">
+        </div>
+        <div class="pd-main-col">
+            <h1>
+                <%= product.title %>
+            </h1>
+            <h3>
+                <pre style="display: inline;">₹</pre>
+                <%= product.price %>
+            </h3>
+            <p>
+                <%= product.description %>
+            </p>
+            <div class="pd-main-btn">
+                <% if(isLoggedIn){ %>
+                <%- include('../includes/add-to-cart.ejs',{product}) -%>
+                <% } %>
+            </div>
+        </div>
+    </main>
+</body>
 
-    </html>
+</html>
