@@ -13,7 +13,6 @@ const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
 const helmet = require("helmet");
-const compression = require("compression");
 
 // Helper variables
 const app = express();
@@ -110,7 +109,6 @@ const User = require("./models/user");
 
 // optimiztion
 app.use(helmet());
-app.use(compression());
 
 // handling incoming req
 app.use("/admin", adminRoutes);
