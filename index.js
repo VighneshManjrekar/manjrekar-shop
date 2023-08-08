@@ -12,14 +12,12 @@ const MongoDbStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
-// const helmet = require("helmet");
-
 
 // Helper variables
 const app = express();
 const config = process.env;
 const PORT = config.PORT || 7030;
-const MONGO_URI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASS}@node-learning.kxjrf.mongodb.net/${config.MONGO_DB}?retryWrites=true&w=majority`;
+const MONGO_URI = config.MONGO_URI;
 
 const store = new MongoDbStore({
   uri: MONGO_URI,

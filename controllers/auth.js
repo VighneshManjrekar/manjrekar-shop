@@ -173,7 +173,7 @@ exports.postReset = (req, res, next) => {
         to: req.body.email.toLowerCase(),
         from: `${process.env.MAIL_ID}`,
         subject: "Reset Password",
-        html: `<p>You requested password reset.</p><p>Click this <a href="https://manjrekar-shop.herokuapp.com/reset/${token}">link</a> to reset the password</p>`,
+        html: `<p>You requested password reset.</p><p>Click this <a href="https://manjrekar-shop.glitch.me//reset/${token}">link</a> to reset the password</p>`,
       });
       // return true
     } catch (err) {
